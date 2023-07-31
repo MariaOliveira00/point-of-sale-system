@@ -1,24 +1,29 @@
-# Compiled class file
-*.class
+package exercicio;
 
-# Log file
-*.log
+import java.text.DecimalFormat;
+import java.util.Scanner;
 
-# BlueJ files
-*.ctxt
+public class PDV {
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+	public static void main(String[] args) {
+		double total, desconto, totalDesconto, valorPago, troco;
+		Scanner teclado = new Scanner(System.in);
+		DecimalFormat formatador = new DecimalFormat("#0.00");
+		System.out.println("PDV");
+		System.out.print("Valor Total: ");
+		total = teclado.nextDouble();
+		System.out.print("Desconto(%): ");
+		desconto = teclado.nextDouble();
+		totalDesconto = total - (desconto * total) / 100;
+		System.out.println("Total com desconto: R$" + formatador.format(totalDesconto));
+		System.out.println("_______________________________________________");
+		System.out.print("Valor pago em dinheiro: ");
+		valorPago = teclado.nextDouble();
+		troco = valorPago - totalDesconto;
+		System.out.println("Troco: R$" + formatador.format(troco));
+		teclado.close();
+		
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+	}
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+}
